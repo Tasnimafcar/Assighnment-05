@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assighnment-05</title>
+    <!-- Tailwind  & daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/test.png" type="image/x-icon">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Home page -->
+    <div class="flex justify-center items-center min-h-screen">
+
+        <div class="fieldset bg-white shadow-sm border-base-300 rounded-box w-xs border p-4">
+
+            <div class="flex justify-center items-center mt-4">
+                <img src="./assets/github-logo.png" alt="">
+            </div>
+
+            <div class="text-center mb-6">
+                <h1 class="font-semibold text-[24px]">GitHub Issue Tracker</h1>
+                <p class="text-[#64748B] text-[14px]">Sign in to manage your issus</p>
+            </div>
+
+            <label class="label font-medium text-[14px]">username</label>
+            <input id="username" type="text" class="input" placeholder="Enter username" />
+
+            <p class="text-[#4A00FF] text-[14px]">Default:admin</p>
+
+            <label class="label font-medium text-[14px]">Password</label>
+            <input id="password" type="password" class="input" placeholder="Enter Password" />
+
+            <p class="text-[#4A00FF] text-[14px]">Default:admin123</p>
+
+            <button id="signInBtn" class="btn btn-neutral mt-4 bg-[#4A00FF] mb-6">Sign in</button>
+        </div>
+    </div>
+
+</body>
+<!-- script js -->
+<script src="./script.js"></script>
+
+</html>

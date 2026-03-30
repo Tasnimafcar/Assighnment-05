@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assighnment-05</title>
+    <!-- Tailwind  & daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/test.png" type="image/x-icon">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <section class="bg-white shadow-sm border-b border-gray-200 px-6 py-3">
+        <div class="flex justify-between ">
+            <!-- Left nav -->
+            <h1 class="text-[30px] font-semibold text-gray-800">All Issus</h1>
+
+            <!-- Right nav -->
+            <div class="join">
+                <div>
+                    <label class="input validator join-item">
+                        <input type="text" placeholder="Search Issus..."required />
+                    </label>
+
+                    <div class="validator-hint hidden">Enter Issus</div>
+                </div>
+                <button id="searchBtn" class="btn btn-neutral join-item rounded-md bg-[#4A00FF]">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter section -->
+     <section class="px-6 py-3">
+        <div class="flex gap-2">
+            <button id="allbtn" class="btn rounded-md bg-[#4A00FF] text-white">All</button>
+            <button id="openbtn" class="btn rounded-md bg-white border border-gray-300 text-gray-700">Open</button>
+            <button id="closedbtn" class="btn rounded-md bg-white border border-gray-300 text-gray-700">Closed</button>
+        </div>
+    </section>
+
+    <!-- script js -->
+<script src="./script.js"></script>
+</body>
+
+</html>
