@@ -69,10 +69,10 @@ if (issueContainer) {
         });
 }
 
-function renderIssues(filter) {
+function renderIssues(filter, issues = allIssues) {
     issueContainer.innerHTML = "";
-    const filtered = filter === "all" ? allIssues :
-        allIssues.filter(issue => issue.status === filter);
+    const filtered = filter === "all" ? issues :
+        issues.filter(issue => issue.status === filter);
 
     issusCount.innerText = filtered.length;
 
@@ -111,4 +111,18 @@ function renderIssues(filter) {
 
         issueContainer.appendChild(card);
     });
+}
+
+// Search bar 
+const searchBtn = document.getElementById("searchBtn");
+const searchInput = document.querySelector(".join input");
+
+if(searchBtn) {
+    searchBtn.addEventListener("click", () => {
+        const query = searchInput.value.toLowerCase();
+        const searchResult = allIssues.filter (issue => 
+            issue.title.toLowerCase() .includes(query)
+        );
+        renderIssues("all", searchResult);
+    })
 }
