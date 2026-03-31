@@ -68,19 +68,48 @@
         <!-- Right -->
         <div class="flex items-center gap-4">
             <span class="flex items-center gap-1 text-[16px]">
-                <span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span>Open
+                <span class="w-2 h-2 rounded-full bg-green-500 inline-block font-medium"></span>Open
             </span>
 
             <span class="flex items-center gap-1 text-[16px]">
-                <span class="w-2 h-2 rounded-full bg-purple-500 inline-block"></span>Closed
+                <span class="w-2 h-2 rounded-full bg-purple-500 inline-block font-medium"></span>Closed
             </span>
         </div>
     </section>
 
-    <!-- Issus Card -->
+    <!-- Issus Cards -->
     <div id="issueContainer" class="grid grid-cols-4 gap-4 px-6 py-4">
 
+        <div class=" bg-white shadow-sm border-t-4 border-green-500 rounded-lg flex flex-col gap-3 p-4 hover:shadow-md transition-shadow cursor-pointer">
+
+            <!-- Top Icon + priority -->
+            <div class="flex justify-between items-center">
+                <img src="./assets/Open-Status.png" alt="">
+                <span class="font-medium text-[12px] rounded-full text-orange-700 bg-orange-200 px-3 py-1">HIGH</span>
+            </div>
+
+            <!-- Tittle -->
+            <h3 class="font-bold text-[16px]">Fix navigation menu on mobile devices</h3>
+
+            <!-- Description -->
+            <p class="text-[14px] text-[#64748B]">The navigation menu doesn't collapse properly <br>on mobile devices...
+            </p>
+
+            <!-- labels -->
+            <div class="flex gap-2 pb-[16px] border-b border-slate-300 flex-wrap">
+                <span class="font-medium text-[14px] rounded-full text-orange-700 bg-orange-200 px-3 py-1">BUG</span>
+                <span class="font-medium text-[14px] rounded-full text-yellow-700 bg-yellow-200 px-3 py-1">HELP
+                    WANTED</span>
+            </div>
+
+            <!-- Footer -->
+             <div class="text-gray-400 text-[14px] mt-2 space-y-1">
+                <p>#1 by john_doe</p>
+                <p class="pl-2">1/15/2024</p>
+             </div>
+        </div>
     </div>
+
 
     <!-- script js -->
     <script src="./script.js"></script>
