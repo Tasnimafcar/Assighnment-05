@@ -31,7 +31,7 @@
             <div class="join">
                 <div>
                     <label class="input validator join-item">
-                        <input type="text" placeholder="Search Issus..."required />
+                        <input type="text" placeholder="Search Issus..." required />
                     </label>
 
                     <div class="validator-hint hidden">Enter Issus</div>
@@ -42,7 +42,7 @@
     </section>
 
     <!-- Filter section -->
-     <section class="px-6 py-3">
+    <section class="px-6 py-3">
         <div class="flex gap-2">
             <button id="allbtn" class="btn rounded-md bg-[#4A00FF] text-white">All</button>
             <button id="openbtn" class="btn rounded-md bg-white border border-gray-300 text-gray-700">Open</button>
@@ -50,8 +50,40 @@
         </div>
     </section>
 
+    <!-- Issus Count section -->
+    <section class="flex justify-between items-center px-6 py-4 bg-white shadow-sm">
+
+        <!-- Left -->
+        <div class="flex items-center gap-3">
+            <img src="./assets/Aperture.png" class="w-12 h-12" alt="">
+            <div>
+                <h2 class="font-semibold text-[20px]">
+                    <span id="issusCount"></span>
+                    Issus
+                </h2>
+                <p class="text-[#64748B] text-[16px]">Track and manage your project issues</p>
+            </div>
+        </div>
+
+        <!-- Right -->
+        <div class="flex items-center gap-4">
+            <span class="flex items-center gap-1 text-[16px]">
+                <span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span>Open
+            </span>
+
+            <span class="flex items-center gap-1 text-[16px]">
+                <span class="w-2 h-2 rounded-full bg-purple-500 inline-block"></span>Closed
+            </span>
+        </div>
+    </section>
+
+    <!-- Issus Card -->
+    <div id="issueContainer" class="grid grid-cols-4 gap-4 px-6 py-4">
+
+    </div>
+
     <!-- script js -->
-<script src="./script.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
