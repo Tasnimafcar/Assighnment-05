@@ -20,7 +20,6 @@ function SignIn() {
 };
 
 // home page
-
 // Filter button 
 const allbtn = document.getElementById("allbtn");
 const openbtn = document.getElementById("openbtn");
@@ -109,6 +108,7 @@ function renderIssues(filter, issues = allIssues) {
                 <p>${issue.createdAt.slice(0, 10)}</p>
             </div>`;
 
+        card.onclick = () => openModal(issue);
         issueContainer.appendChild(card);
     });
 }
@@ -117,12 +117,66 @@ function renderIssues(filter, issues = allIssues) {
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.querySelector(".join input");
 
-if(searchBtn) {
-    searchBtn.addEventListener("click", () => {
-        const query = searchInput.value.toLowerCase();
-        const searchResult = allIssues.filter (issue => 
-            issue.title.toLowerCase() .includes(query)
-        );
-        renderIssues("all", searchResult);
-    })
+searchBtn.addEventListener('click', () => {
+    const searchText = searchInput.value.trim();
+
+    if (searchText === '') {
+        renderIssues("all");
+        return;
+    }
+
+    searchIssues(searchText);
+})
+
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        searchBtn.click();
+    }
+})
+
+async function searchIssues(query) {
+    const res = await fetch
+        (`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${query}`)
+
+    const data = await res.json();
+
+    renderIssues("all", data.data);
+}
+
+// Modal
+const issueModal = document.getElementById("Issue-details-modal")
+
+function openModal(issue) {
+    document.getElementById("modalTitle").innerText = issue.title;
+    document.getElementById("modalDescription").innerText = issue.description;
+    document.getElementById("modalAssignee").innerText = issue.assignee || "Unassigned";
+    document.getElementById("modalAuthor").innerText = issue.author;
+    document.getElementById("modalDate").innerText = issue.createdAt.slice(0, 10);
+
+    // status
+    const statusEl = document.getElementById("modalStatus")
+
+    const statusBg = issue.status === "open" ? "bg-green-600" : "bg-red-500";
+
+    statusEl.innerText = issue.status === "open" ? "Opened" : "Closed"
+    statusEl.className = `font-medium text-[12px] text-white ${statusBg} rounded-full px-2 py-1`
+
+    // priority
+    const priorityEl = document.getElementById("modalPriority")
+
+    priorityEl.innerText = issue.priority.toUpperCase();
+
+    const priorityBg = issue.priority === "high" ? "bg-[#EF4444]" :
+        issue.priority === "medium" ? "bg-yellow-500" : "bg-gray-400";
+
+    priorityEl.className = `font-medium text-[12px] text-white ${priorityBg} px-2 py-1 rounded-full`
+
+    // labels
+    const labelsEl = document.getElementById("modalLabels")
+
+    labelsEl.innerHTML = issue.labels.map(label =>
+        `<p class="font-medium text-[12px] text-[#EF4444] bg-[#FECACA] rounded-full px-2 py-1">${label.toUpperCase()}</p>`
+    ).join("")
+
+    issueModal.showModal();
 }

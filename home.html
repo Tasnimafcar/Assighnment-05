@@ -12,11 +12,11 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/test.png" type="image/x-icon">
     <!-- font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
     <style>
         * {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Geist', sans-serif;
         }
     </style>
 
@@ -33,7 +33,7 @@
             <div class="join">
                 <div>
                     <label class="input validator join-item">
-                        <input type="text" placeholder="Search Issus..." required />
+                        <input id="searchInput" type="text" placeholder="Search Issus..." required />
                     </label>
 
                     <div class="validator-hint hidden">Enter Issus</div>
@@ -80,10 +80,60 @@
     </section>
 
     <!-- Issus Cards -->
-    <div id="issueContainer" class="grid grid-cols-4 gap-4 px-6 py-4 mt-4 mb-6">
+    <div id="issueContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-6 py-4 mt-4 mb-6">
         <!-- Dynamically append here -->
     </div>
-    
+
+    <!-- Details Modal -->
+    <dialog id="Issue-details-modal" class="modal">
+        <div class="modal-box">
+
+            <!-- tittle -->
+            <h1 id="modalTitle" class="font-bold text-[24px] mb-[6px]">Fix broken image uploads</h1>
+
+            <!-- Status + author + createdAt -->
+            <div class="flex items-center gap-4">
+                <p id="modalStatus" class="font-medium text-[12px] text-white bg-green-600 rounded-full px-2 py-1">
+                    Opened</p>
+
+                <span id="modalAuthor" class="flex items-center gap-1 text-[12px] text-[#64748B]">
+                    <span class="w-2 h-2 rounded-full bg-gray-500 inline-block font-medium"></span>Opend by fahim ahmed
+                </span>
+
+                <span id="modalDate" class="flex items-center gap-1 text-[12px] text-[#64748B]">
+                    <span class="w-2 h-2 rounded-full bg-gray-500 inline-block font-medium"></span>22/02/2026
+                </span>
+            </div>
+
+            <!-- label -->
+            <div id="modalLabels" class="flex gap-2 pb-[16px] flex-wrap mt-[18px]">
+                <p class="font-medium text-[12px] text-[#EF4444] bg-[#FECACA] rounded-full px-2 py-1">BUG</p>
+                <p class="font-medium text-[12px] text-[#EF4444] bg-[#FECACA] rounded-full px-2 py-1">HELP WANTED</p>
+            </div>
+
+            <!-- description -->
+            <p id="modalDescription" class="mt-[10px] text-[#64748B] text-[16px]">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit.
+                Officia, expedita.</p>
+
+            <!-- Assignee + priority-->
+            <div class="flex justify-between items-center px-4 mt-[18px] bg-slate-50 shadow-sm h-12 rounded-md">
+                <p class="pl-2">Assignee: <span id="modalAssignee" class="font-semibold text-[16px]">Fahim</span></p>
+                <p>priority: <span id="modalPriority"
+                        class="font-medium text-[12px] text-white bg-[#EF4444] px-2 py-1 rounded-full">HIGH</span></p>
+            </div>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <button id="modalBtn" class="btn btn-primary">Close</button>
+                </form>
+            </div>
+
+        </div>
+
+
+    </dialog>
+
     <!-- script js -->
     <script src="./script.js"></script>
 </body>
